@@ -1,2 +1,0 @@
-# GNL
-Get Next line
