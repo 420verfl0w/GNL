@@ -6,23 +6,16 @@
 /*   By: stales <stales@student42.fr>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/09 01:50:32 by stales            #+#    #+#             */
-/*   Updated: 2022/04/09 03:14:23 by stales           ###   ########.fr       */
+/*   Updated: 2022/04/09 22:23:36 by stales           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <unistd.h>
-#include <stdlib.h>
 
 char	*get_next_line(int fd)
 {
-	static	char buf[BUFFER_SIZE];
-	char	*tmp;
-	char	*str;
+	static char	*ptr = NULL;
 
-	if (ft_smem(buf, 0xA))
-		read(fd, buf, BUFFER_SIZE);
-	tmp = buf;
-	while (*tmp && *tmp != 0xA)
-		tmp++;
+	ptr = ft_memread(fd, &ptr);
+	return (ptr);
 }
